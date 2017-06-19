@@ -1,0 +1,6 @@
+org/openmrs/module/pacsquery/PacsQueryActivator.class
+org/openmrs/module/pacsquery/PacsQueryConfig.class
+org/openmrs/module/pacsquery/api/impl/PacsQueryServiceImpl.class
+org/openmrs/module/pacsquery/Item.class
+org/openmrs/module/pacsquery/api/dao/PacsQueryDao.class
+org/openmrs/module/pacsquery/api/PacsQueryService.class

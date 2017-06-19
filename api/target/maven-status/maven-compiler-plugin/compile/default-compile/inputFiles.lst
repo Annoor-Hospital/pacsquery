@@ -1,0 +1,6 @@
+/home/openmrs/PacsQuery/pacsquery/api/src/main/java/org/openmrs/module/pacsquery/PacsQueryActivator.java
+/home/openmrs/PacsQuery/pacsquery/api/src/main/java/org/openmrs/module/pacsquery/api/dao/PacsQueryDao.java
+/home/openmrs/PacsQuery/pacsquery/api/src/main/java/org/openmrs/module/pacsquery/PacsQueryConfig.java
+/home/openmrs/PacsQuery/pacsquery/api/src/main/java/org/openmrs/module/pacsquery/api/impl/PacsQueryServiceImpl.java
+/home/openmrs/PacsQuery/pacsquery/api/src/main/java/org/openmrs/module/pacsquery/Item.java
+/home/openmrs/PacsQuery/pacsquery/api/src/main/java/org/openmrs/module/pacsquery/api/PacsQueryService.java
