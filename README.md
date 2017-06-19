@@ -3,11 +3,11 @@ Pacs Query
 
 Description
 -----------
-This module provides a URL-based query to a PACS system, retrieving a studies according to patient ID and returning a list of matched studies with a collection of queried fields.
+This module provides a URL-based query to a PACS system, retrieving studies according to patient ID and returning a list of matched studies with a collection of queried fields.
 
 The connection to the PACS system should be configured via the pacsquery.pacsConfig OpenMRS globalProperty. Studies can be retrieved by going to `http://HOSTIP/openmrs/module/pacsquery/query.form?patientid=204586`. Fields can be configured using the pacsquery.retrieveTags globalProperty.
 
-The responce JSON is built using the JSONWriter component of dcm4che. What is returned is a list of objects, each object representing a study. Each study is itself a collect of key value pairs, where keys are 8-charecter strings of DICOM tags. Corresponding values are an object containing "vr" and "Value".
+The response JSON is built using the JSONWriter component of dcm4che. What is returned is a list of objects, each object representing a study. Each study is itself a collect of key value pairs, where keys are 8-character strings of DICOM tags. Corresponding values are an object containing "vr" and "Value".
 
 Example:
 
