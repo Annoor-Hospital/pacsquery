@@ -1,9 +1,36 @@
-${moduleName}
+Pacs Query
 ==========================
 
 Description
 -----------
-This is a very basic module which can be used as a starting point in creating a new module.
+This module provides a URL-based query to a PACS system, retrieving a studies according to patient ID and returning a list of matched studies with a collection of queried fields.
+
+It is necessary to configure the connection information. (FIll this in when implemented).
+
+Studies can be retrieved by going to /openmrs/module/pacsquery?patientid=000000. Fields can be configured using the ... global property. Default configured fields are ...
+
+The responce JSON is built using the JSONWriter component of dcm4che. What is returned is a list of objects, each object representing a study. Each study is itself a collect of key value pairs, where keys are 8-charecter strings of DICOM tags. Corresponding values are an object containing "vr" and "Value".
+
+Example:
+
+[  
+   {  
+      "00080005":{  
+         "vr":"CS",
+         "Value":[  
+            "ISO_IR 100"
+         ]
+      },
+      "00080020":{  
+         "vr":"DA",
+         "Value":[  
+            "20170614"
+         ]
+      },
+      ...
+   }
+   ...
+]
 
 Building from Source
 --------------------
