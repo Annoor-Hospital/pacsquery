@@ -57,7 +57,22 @@
 		</description>
 	</globalProperty>
 	/Required Global Properties -->
-	
+
+	<globalProperty>
+		<property>pacsquery.pacsConfig</property>
+		<defaultValue>DCM4CHEE@localhost:11112</defaultValue>
+		<description>
+			AE Title, Host/IP and port of PACS system for study retrieval. Default is DCM4CHEE@localhost:11112.
+		</description>
+	</globalProperty>
+	<globalProperty>
+		<property>pacsquery.retrieveTags</property>
+		<defaultValue>00080020,00080030,00080060,0020000D,00402016,00080050,00321060</defaultValue>
+		<description>
+			Comma-seperated list of DICOM tags of study properties for retrieval, in addition to 00100020 (patient ID). Default is 00080020,00080030,00080060,0020000D,00402016,00080050,00321060. These correspond to: study date, study time, modality, study uid, order number, accession number, requested procedure description.
+		</description>
+	</globalProperty>
+
 	<!--
 	<dwr>
 		<allow>
