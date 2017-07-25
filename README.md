@@ -34,11 +34,6 @@ Building from Source
 --------------------
 This module was created using the OpenMRS SDK.
 
-Basic testing steps:
-`mvn install openmrs-sdk:deploy -DserverId=tests1`
-And then in openmrs tests1 folder:
-`mvn openmrs-sdk:run -DserverId=tests1`
-
 Full build instructions
 -----------------------
 
