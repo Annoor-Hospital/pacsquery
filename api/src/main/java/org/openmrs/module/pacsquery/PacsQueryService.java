@@ -99,7 +99,15 @@ public class PacsQueryService {
 	}
 	
 	// roughly stolen from FindSCU.java
-	public void query(String patientid) throws Exception {
+	public void query(String patientid, String date) throws Exception {
+		if (patientid.isEmpty() && date.isEmpty())
+			throw new Exception("At least one of patientid, date required.");
+		if (!patientid.isEmpty() && !patientid.matches("^[A-Za-z]{0,3}[0-9]+$")) {
+			throw new Exception("patientid must be numeric");
+		}
+		if (!date.isEmpty() && !date.matches("^[0-9]{4}[0-1][0-9][0-3][0-9]$")) {
+			throw new Exception("date must be of format YYYYMMDD");
+		}
 		System.out.println("Initating Pacs Query");
 		
 		// Create a device for query
@@ -119,10 +127,10 @@ public class PacsQueryService {
 		conn.setPackPDV(true);
 		conn.setConnectTimeout(10000); // 10 sec
 		conn.setRequestTimeout(10000); // 10 sec
-		conn.setAcceptTimeout(0); // 10 sec
-		conn.setReleaseTimeout(0); // 10 sec
-		conn.setResponseTimeout(0); // 10 sec
-		conn.setRetrieveTimeout(0); // 10 sec
+		conn.setAcceptTimeout(0);
+		conn.setReleaseTimeout(0);
+		conn.setResponseTimeout(0);
+		conn.setRetrieveTimeout(0);
 		conn.setIdleTimeout(0);
 		conn.setSocketCloseDelay(Connection.DEF_SOCKETDELAY);
 		conn.setSendBufferSize(0);
@@ -149,10 +157,17 @@ public class PacsQueryService {
 		Attributes attr = new Attributes();
 		// Add study level
 		attr.setString(Tag.QueryRetrieveLevel, VR.CS, "STUDY");
-		// Match Patient ID
-		attr.setString(0x00100020, VR.LO, patientid);
-		for (int tag : this.tags)
+		// request params
+		for (int tag : this.tags) {
 			attr.setNull(tag, ElementDictionary.vrOf(tag, null));
+		}
+		// Match query params
+		if (!patientid.isEmpty()) {
+			attr.setString(0x00100020, VR.LO, patientid);
+		}
+		if (!date.isEmpty()) {
+			attr.setString(0x00080020, VR.DA, date); // date-date
+		}
 		
 		// Create Executor Service
 		ExecutorService executorService = Executors.newSingleThreadExecutor();
@@ -161,7 +176,7 @@ public class PacsQueryService {
 		device.setScheduledExecutor(scheduledExecutorService);
 		
 		// Run the query and write the result
-		System.out.println("Running query for patientid=" + patientid);
+		System.out.println("Running query for patientid=" + patientid + " date=" + date);
 		Association as = null;
 		DimseRSP rsp = null;
 		long t1 = 0;

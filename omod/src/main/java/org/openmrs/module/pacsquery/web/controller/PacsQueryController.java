@@ -52,19 +52,18 @@ public class PacsQueryController {
 	 * @return String form view name
 	 */
 	@RequestMapping(value = "query.form")
-	public void onGet(Writer responseWriter, @RequestParam(value = "patientid", required = true) String patientid) {
+	public void onGet(Writer responseWriter, @RequestParam(value = "patientid", defaultValue = "") String patientid,
+	        @RequestParam(value = "date", defaultValue = "") String date) {
 		PacsQueryService ps = new PacsQueryService(responseWriter);
 		try {
-			ps.query(patientid);
+			ps.query(patientid, date);
 		}
 		catch (Exception e) {
 			System.out.println(e.getMessage());
 			try {
-				responseWriter.write("[{\"error\":\"Query failed, see console\"}]");
+				responseWriter.write("[{\"error\":\"Query failed: " + e.getMessage() + "\"}]");
 			}
-			catch (Exception e2) {
-				
-			}
+			catch (Exception e2) {}
 		}
 	}
 }
