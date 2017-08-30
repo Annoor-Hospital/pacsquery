@@ -36,7 +36,7 @@ public class PacsQueryDimseRSPHandler extends DimseRSPHandler {
 		if (Status.isPending(status)) {
 			try {
 				this.jw.write(data);
-				System.out.println("Wrote JSON");
+				// System.out.println("Wrote JSON");
 			}
 			catch (Exception e) {
 				System.out.println("Failed to write JSON : " + e.getMessage());

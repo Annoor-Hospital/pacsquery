@@ -108,7 +108,7 @@ public class PacsQueryService {
 		if (!date.isEmpty() && !date.matches("^[0-9]{4}[0-1][0-9][0-3][0-9]$")) {
 			throw new Exception("date must be of format YYYYMMDD");
 		}
-		System.out.println("Initating Pacs Query");
+		//System.out.println("Initating Pacs Query");
 		
 		// Create a device for query
 		Device device = new Device("findscu");
@@ -153,7 +153,7 @@ public class PacsQueryService {
 		rq.addPresentationContext(new PresentationContext(1, UID.StudyRootQueryRetrieveInformationModelFIND, IVR_LE_FIRST));
 		
 		// Create Attributes
-		System.out.println("Creating query attributes");
+		//System.out.println("Creating query attributes");
 		Attributes attr = new Attributes();
 		// Add study level
 		attr.setString(Tag.QueryRetrieveLevel, VR.CS, "STUDY");
@@ -176,7 +176,7 @@ public class PacsQueryService {
 		device.setScheduledExecutor(scheduledExecutorService);
 		
 		// Run the query and write the result
-		System.out.println("Running query for patientid=" + patientid + " date=" + date);
+		//System.out.println("Running query for patientid=" + patientid + " date=" + date);
 		Association as = null;
 		DimseRSP rsp = null;
 		long t1 = 0;
@@ -184,20 +184,20 @@ public class PacsQueryService {
 		JsonGenerator g = null;
 		try {
 			// Get the association
-			t1 = System.currentTimeMillis();
+			//t1 = System.currentTimeMillis();
 			as = ae.connect(remote, rq);
-			t2 = System.currentTimeMillis();
-			System.out.println("Association opened in " + (t2 - t1) + "ms");
+			//t2 = System.currentTimeMillis();
+			//System.out.println("Association opened in " + (t2 - t1) + "ms");
 			
 			// Build a JSON Generator and Writer
 			g = Json.createGenerator(this.respWriter);
 			g.writeStartArray();
 			JSONWriter jw = new JSONWriter(g);
-			System.out.println("Created JSON Writer");
+			//System.out.println("Created JSON Writer");
 			
-			t1 = System.currentTimeMillis();
+			//t1 = System.currentTimeMillis();
 			DimseRSPHandler rspHandler = new PacsQueryDimseRSPHandler(as.nextMessageID(), jw);
-			System.out.println("Query with keys: " + attr.toString());
+			//System.out.println("Query with keys:\n" + attr.toString());
 			as.cfind(UID.StudyRootQueryRetrieveInformationModelFIND, Priority.NORMAL, attr, null, rspHandler);
 		}
 		catch (Exception e) {
@@ -212,8 +212,8 @@ public class PacsQueryService {
 			executorService.shutdown();
 			scheduledExecutorService.shutdown();
 			
-			t2 = System.currentTimeMillis();
-			System.out.println("C-FIND Closed in " + (t2 - t1) + "ms!");
+			//t2 = System.currentTimeMillis();
+			//System.out.println("C-FIND Closed in " + (t2 - t1) + "ms!");
 			if (g != null) {
 				try {
 					g.writeEnd();
