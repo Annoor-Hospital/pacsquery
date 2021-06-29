@@ -149,8 +149,8 @@ public class PacsQueryService {
 		AAssociateRQ rq = new AAssociateRQ();
 		rq.setCalledAET(this.aetitle);
 		// pulled from CLIUtils.java
-		String[] IVR_LE_FIRST = { UID.ImplicitVRLittleEndian, UID.ExplicitVRLittleEndian, UID.ExplicitVRBigEndianRetired };
-		rq.addPresentationContext(new PresentationContext(1, UID.StudyRootQueryRetrieveInformationModelFIND, IVR_LE_FIRST));
+		String[] IVR_LE_FIRST = { UID.ImplicitVRLittleEndian, UID.ExplicitVRLittleEndian };
+		rq.addPresentationContext(new PresentationContext(1, UID.StudyRootQueryRetrieveInformationModelFind, IVR_LE_FIRST));
 		
 		// Create Attributes
 		//System.out.println("Creating query attributes");
@@ -198,7 +198,7 @@ public class PacsQueryService {
 			//t1 = System.currentTimeMillis();
 			DimseRSPHandler rspHandler = new PacsQueryDimseRSPHandler(as.nextMessageID(), jw);
 			//System.out.println("Query with keys:\n" + attr.toString());
-			as.cfind(UID.StudyRootQueryRetrieveInformationModelFIND, Priority.NORMAL, attr, null, rspHandler);
+			as.cfind(UID.StudyRootQueryRetrieveInformationModelFind, Priority.NORMAL, attr, null, rspHandler);
 		}
 		catch (Exception e) {
 			throw new Exception("Query failed: " + e.getMessage());

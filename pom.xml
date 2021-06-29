@@ -41,9 +41,8 @@
 			<url>http://repo1.maven.org/maven2</url>
 		</repository>
 		<repository>
-			<id>www.dcm4che.org</id>
-			<name>dcm4che Repository</name>
-			<url>http://www.dcm4che.org/maven2</url>
+			<id>scijava.public</id>
+			<url>https://maven.scijava.org/content/repositories/public</url>
 		</repository>
 	</repositories>
 	<pluginRepositories>

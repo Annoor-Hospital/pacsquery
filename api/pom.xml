@@ -13,45 +13,47 @@
 	<description>API project for Pacs Query</description>
 
 	<dependencies>
-        <dependency>
-		    <groupId>org.dcm4che</groupId>
-		    <artifactId>dcm4che-net</artifactId>
-		    <version>3.3.8</version>
-		    <exclusions>
-			<exclusion>
-			    <groupId>org.slf4j</groupId>
-			    <artifactId>slf4j-api</artifactId>
-			</exclusion>
-			<exclusion>
-			    <groupId>org.slf4j</groupId>
-			    <artifactId>slf4j-log4j12</artifactId>
-			</exclusion>
-		    </exclusions>
+		<!-- https://mvnrepository.com/artifact/org.dcm4che/dcm4che-net -->
+		<dependency>
+			<groupId>org.dcm4che</groupId>
+			<artifactId>dcm4che-net</artifactId>
+			<version>5.23.3</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-log4j12</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
-		    <groupId>org.dcm4che</groupId>
-		    <artifactId>dcm4che-core</artifactId>
-		    <version>3.3.8</version>
-		     <exclusions>
+			<groupId>org.dcm4che</groupId>
+			<artifactId>dcm4che-core</artifactId>
+			<version>5.23.3</version>
+			 <exclusions>
 			<exclusion>
-			    <groupId>org.slf4j</groupId>
-			    <artifactId>slf4j-api</artifactId>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-api</artifactId>
 			</exclusion>
 			<exclusion>
-			    <groupId>org.slf4j</groupId>
-			    <artifactId>slf4j-log4j12</artifactId>
+				<groupId>org.slf4j</groupId>
+				<artifactId>slf4j-log4j12</artifactId>
 			</exclusion>
-		    </exclusions>
+			</exclusions>
 		</dependency>
 		<dependency>
-		    <groupId>org.dcm4che</groupId>
-		    <artifactId>dcm4che-json</artifactId>
-		    <version>3.3.8</version>
+			<groupId>org.dcm4che</groupId>
+			<artifactId>dcm4che-json</artifactId>
+			<version>5.23.3</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.json/javax.json-api -->
 		<dependency>
-		    <groupId>javax.json</groupId>
-		    <artifactId>javax.json-api</artifactId>
-		    <version>1.1</version>
+			<groupId>javax.json</groupId>
+			<artifactId>javax.json-api</artifactId>
+			<version>1.1.4</version>
 		</dependency>
 	</dependencies>
 </project>

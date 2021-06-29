@@ -17,13 +17,13 @@
 	<!-- <updateURL>https://modules.openmrs.org/modules/download/@MODULE_ID@/update.rdf</updateURL> -->
 	<!-- /Base Module Properties -->
 	
-	<require_version>1.11.6</require_version>
+	<require_version>2.0.0</require_version>
 	
-	<!-- Extensions -->
-	<extension>
-		<point>org.openmrs.admin.list</point>
-		<class>org.openmrs.module.pacsquery.extension.html.AdminList</class>
-	</extension>
+	<require_modules>
+		<!-- How do I require this module? It just says requires webservices-rest 2.29
+		<require_module version="2.29">org.openmrs.module.webservices-rest</require_module>
+		-->
+	</require_modules>
 
 	<aware_of_modules>
 		<aware_of_module>org.openmrs.module.legacyui</aware_of_module>
@@ -45,19 +45,6 @@
 	</privilege>
 	 /Required Privileges -->
 
-
-	<!-- Required Global Properties 
-	<globalProperty>
-		<property>@MODULE_ID@.someProperty</property>
-		<defaultValue></defaultValue>
-		<description>
-			A description of the global property goes here.  The description
-			should explain enough for administrators to understand the purpose
-			and possible values for the global property.
-		</description>
-	</globalProperty>
-	/Required Global Properties -->
-
 	<globalProperty>
 		<property>pacsquery.pacsConfig</property>
 		<defaultValue>DCM4CHEE@localhost:11112</defaultValue>
@@ -72,24 +59,6 @@
 			Comma-seperated list of DICOM tags of study properties for retrieval, in addition to 00100020 (patient ID). Default is 00080020,00080030,00080060,0020000D,00402016,00080050,00321060. These correspond to: study date, study time, modality, study uid, order number, accession number, requested procedure description.
 		</description>
 	</globalProperty>
-
-	<!--
-	<dwr>
-		<allow>
-			<create creator="new" javascript="DWRFormEntryService">
-				<param name="class" value="org.openmrs.module.@MODULE_ID@.web.DWRFormEntryService"/>
-				<include method="enterForm"/>
-			</create>
-		</allow>
-
-		<signatures>
-			<![CDATA[
-			import @MODULE_PACKAGE@.web.DWRFormEntryService;
-			DWRFormEntryService.enterForm(Integer patientId, Integer formId, boolean useEncounter, List<String> fields);
-			]]>
-		</signatures>	
-	</dwr>
-	-->
 	
 	<!-- Servlets -->
 	<!-- Accessed through the url /pageContext()/moduleServlet/<moduleId>/<servlet-name> 

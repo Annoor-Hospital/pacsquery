@@ -36,8 +36,8 @@ import org.openmrs.module.pacsquery.PacsQueryService;
  * This class configured as controller using annotation and mapped with the URL of
  * 'module/pacsquery/pacsquery.form'.
  */
-@Controller("pacsquery.PacsQueryController")
-@RequestMapping(value = "module/pacsquery", method = RequestMethod.GET, produces = "application/json")
+@Controller("$pacsquery.PacsQueryController")
+@RequestMapping(value = "module/pacsquery")
 public class PacsQueryController {
 	
 	/** Logger for this class and subclasses */
@@ -51,7 +51,7 @@ public class PacsQueryController {
 	 * 
 	 * @return String form view name
 	 */
-	@RequestMapping(value = "query.form")
+	@RequestMapping(value = "query.form", method = RequestMethod.GET, produces = "application/json")
 	public void onGet(Writer responseWriter, @RequestParam(value = "patientid", defaultValue = "") String patientid,
 	        @RequestParam(value = "date", defaultValue = "") String date) {
 		PacsQueryService ps = new PacsQueryService(responseWriter);
@@ -59,7 +59,8 @@ public class PacsQueryController {
 			ps.query(patientid, date);
 		}
 		catch (Exception e) {
-			System.out.println(e.getMessage());
+			log.error(e.getMessage());
+			// System.out.println(e.getMessage());
 			try {
 				responseWriter.write("[{\"error\":\"Query failed: " + e.getMessage() + "\"}]");
 			}
