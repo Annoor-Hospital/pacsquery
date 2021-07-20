@@ -10,17 +10,17 @@
 
 	<groupId>org.openmrs.module</groupId>
 	<artifactId>pacsquery</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>pom</packaging>
 	<name>Pacs Query</name>
-	<description>no description</description>
+	<description>This module allows DICOM queries through a REST (GET) request. It can be used by a front-end interface to retreive PACS images information for a specific patient or date.</description>
 
-	<url>https://wiki.openmrs.org/x/FQ4z</url>
+	<url>https://github.com/Annoor-Hospital/pacsquery/</url>
 
 	<scm>
-		<connection>scm:git:git@github.com:openmrs/openmrs-module-pacsquery.git</connection>
-		<developerConnection>scm:git:git@github.com:openmrs/openmrs-module-pacsquery.git</developerConnection>
-		<url>https://github.com/openmrs/openmrs-module-pacsquery/</url>
+		<connection>scm:git:git@github.com:Annoor-Hospital/pacsquery.git</connection>
+		<developerConnection>scm:git:git@github.com:Annoor-Hospital/pacsquery.git</developerConnection>
+		<url>https://github.com/Annoor-Hospital/pacsquery/</url>
 	</scm>
 
 	<modules>
@@ -49,7 +49,7 @@
 		<pluginRepository>
 			<id>openmrs-repo</id>
 			<name>OpenMRS Nexus Repository</name>
-			<url>http://mavenrepo.openmrs.org/nexus/content/repositories/public</url>
+			<url>https://mavenrepo.openmrs.org/nexus/content/repositories/public</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
