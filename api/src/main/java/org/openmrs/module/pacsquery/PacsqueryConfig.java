@@ -14,8 +14,8 @@ import org.springframework.stereotype.Component;
 /**
  * Contains module's config.
  */
-@Component("pacsquery.PacsQueryConfig")
-public class PacsQueryConfig {
+@Component("pacsquery.PacsqueryConfig")
+public class PacsqueryConfig {
 	
-	public final static String MODULE_PRIVILEGE = "Pacs Query Privilege";
+	public final static String MODULE_PRIVILEGE = "Pacsquery Privilege";
 }

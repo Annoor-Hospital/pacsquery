@@ -16,7 +16,7 @@ import org.openmrs.module.BaseModuleActivator;
 /**
  * This class contains the logic that is run every time this module is either started or shutdown
  */
-public class PacsQueryActivator extends BaseModuleActivator {
+public class PacsqueryActivator extends BaseModuleActivator {
 	
 	private Log log = LogFactory.getLog(this.getClass());
 	
@@ -24,14 +24,14 @@ public class PacsQueryActivator extends BaseModuleActivator {
 	 * @see #started()
 	 */
 	public void started() {
-		log.info("Started Pacs Query");
+		log.info("Started Pacsquery");
 	}
 	
 	/**
 	 * @see #shutdown()
 	 */
 	public void shutdown() {
-		log.info("Shutdown Pacs Query");
+		log.info("Shutdown Pacsquery");
 	}
 	
 }

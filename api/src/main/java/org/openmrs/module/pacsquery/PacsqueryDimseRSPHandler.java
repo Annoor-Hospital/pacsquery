@@ -15,16 +15,11 @@ import org.dcm4che3.net.Status;
 
 import java.io.IOException;
 
-// roughly stolen from FindSCU.java
-public class PacsQueryDimseRSPHandler extends DimseRSPHandler {
+public class PacsqueryDimseRSPHandler extends DimseRSPHandler {
 	
-	int cancelAfter = 50;
+	private final JSONWriter jw;
 	
-	int numMatches;
-	
-	JSONWriter jw;
-	
-	public PacsQueryDimseRSPHandler(int msgId, JSONWriter jw) {
+	public PacsqueryDimseRSPHandler(int msgId, JSONWriter jw) {
 		super(msgId);
 		this.jw = jw;
 	}
@@ -36,20 +31,10 @@ public class PacsQueryDimseRSPHandler extends DimseRSPHandler {
 		if (Status.isPending(status)) {
 			try {
 				this.jw.write(data);
-				// System.out.println("Wrote JSON");
 			}
 			catch (Exception e) {
 				System.out.println("Failed to write JSON : " + e.getMessage());
 			}
-			++numMatches;
-			if (cancelAfter != 0 && numMatches >= cancelAfter)
-				try {
-					cancel(as);
-					cancelAfter = 0;
-				}
-				catch (IOException e) {
-					e.printStackTrace();
-				}
 		}
 	}
 }

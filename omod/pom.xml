@@ -9,11 +9,11 @@
 
 	<artifactId>pacsquery-omod</artifactId>
 	<packaging>jar</packaging>
-	<name>Pacs Query OMOD</name>
-	<description>Omod submodule for Pacs Query</description>
+	<name>Pacsquery OMOD</name>
+	<description>Omod submodule for Pacsquery</description>
 
 	<dependencies>
-		<dependency>
+        <dependency>
             <groupId>org.openmrs.module</groupId>
             <artifactId>pacsquery-api</artifactId>
             <version>1.0.0</version>
@@ -42,8 +42,17 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
+				<!--<version>3.6.1</version>-->
+				<!--<executions>
+					<execution>
+					<id>unpack-dependencies</id>
+					<phase>package</phase>
+					<goals>
+						<goal>unpack-dependencies</goal>
+					</goals>
+					</execution>
+				</executions>-->
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
